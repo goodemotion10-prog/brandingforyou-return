@@ -251,7 +251,7 @@ function HeroSplit() {
                 2025 수행률 100%
               </div>
               <div style={{ position: 'absolute', bottom: '14%', right: '2%', background: 'var(--gold)', color: 'var(--ink)', padding: '12px 18px', borderRadius: 999, fontSize: 13, fontWeight: 700, boxShadow: '0 12px 24px -8px rgba(207,176,126,.5)' }}>
-                7개 업체 전원 만족
+                10곳 이상 업체와 함께
               </div>
               <div style={{ position: 'absolute', bottom: '40%', left: '-8%', background: 'var(--paper)', color: 'var(--ink)', padding: '10px 16px', borderRadius: 999, fontSize: 12, fontWeight: 600, border: '1px solid var(--line)' }}>
                 대표 직접 컨설팅
@@ -326,7 +326,7 @@ function MiniStat({ n, u, l }) {
 /* ============ TRUST MARQUEE ============ */
 function TrustStrip() {
   const items = [
-    '2025년 담당 업체 7곳 전원 100% 수행',
+    '2025년 10곳 이상 업체와 함께, 전원 100% 수행',
     '블로그·인스타·유튜브·스마트스토어 통합 운영',
     '랜딩페이지·홈페이지·로고 제작 포함',
     '수행기간 종료 후에도 끝까지 책임지는 마케팅',
@@ -353,7 +353,7 @@ function Stats() {
           display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32,
           borderTop: '1px solid var(--line)', paddingTop: 60,
         }} className="bfy-stats-grid">
-          <Reveal delay={0}><Stat value="100" unit="%" label="2025 수행률" suffix="담당 업체 7곳 전원"/></Reveal>
+          <Reveal delay={0}><Stat value="100" unit="%" label="2025 수행률" suffix="10곳 이상과 함께"/></Reveal>
           <Reveal delay={100}><Stat value="6+" unit="개월" label="이상 지속한 사례" suffix="수행기간 후에도 함께"/></Reveal>
           <Reveal delay={200}><Stat value="8" unit="채널" label="올인원 마케팅" suffix="블로그~로고까지"/></Reveal>
           <Reveal delay={300}><Stat value="1:1" unit="" label="대표 직접 컨설팅" suffix="찾아가는 미팅"/></Reveal>
