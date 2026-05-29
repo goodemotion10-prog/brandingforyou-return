@@ -246,8 +246,6 @@ function Apply() {
                         options={[
                           ['passed', '희망리턴패키지 합격했어요'],
                           ['applying', '신청 준비 중이에요'],
-                          ['considering', '아직 합격 전이지만 미리 알아봐요'],
-                          ['other', '기타'],
                         ]}
                       />
                     </FormField>
