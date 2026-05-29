@@ -114,20 +114,17 @@ function HeroEditorial() {
               <h1 className="display" style={{ fontSize: 'clamp(40px, 7vw, 92px)', margin: 0, lineHeight: 1.0 }}>
                 합격을<br/>
                 축하드립니다.<br/>
-                <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span style={{ display: 'inline-block' }}>
                   이제는,
-                  <svg style={{ position: 'absolute', left: 0, bottom: -10, width: '100%' }} height="12" viewBox="0 0 200 12" preserveAspectRatio="none">
-                    <path d="M2 8 Q 50 2, 100 6 T 198 5" stroke="var(--gold)" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                  </svg>
                 </span>
                 <br/>
-                <span style={{ color: 'var(--gold-deep)' }}>마케팅</span>입니다.
+                <span className="bfy-hl" style={{ color: 'var(--ink)' }}>마케팅</span>입니다.
               </h1>
             </Reveal>
             <Reveal delay={240}>
               <p style={{ marginTop: 36, fontSize: 19, color: 'var(--ink-2)', maxWidth: 560, lineHeight: 1.65 }}>
                 항목만 채우는 마케팅은 수행기간이 끝나면 그대로 멈춥니다.<br/>
-                브랜딩포유는 <strong style={{ color: 'var(--ink)' }}>2025년 7개 업체 전원 100% 수행</strong>,
+                브랜딩포유는 <strong style={{ color: 'var(--ink)' }}>상담 포함 10곳 이상과 함께, 담당 업체 전원 100% 수행</strong>,
                 수행기간이 끝난 후에도 마케팅을 함께 이어간 업체가 있었던,
                 책임감 있게 끝까지 함께하는 마케팅 파트너입니다.
               </p>
@@ -145,7 +142,7 @@ function HeroEditorial() {
             <Reveal delay={500}>
               <div style={{ marginTop: 56, display: 'flex', gap: 40, flexWrap: 'wrap' }}>
                 <MiniStat n="100" u="%" l="2025 수행률" />
-                <MiniStat n="7" u="개" l="2025 담당 업체" />
+                <MiniStat n="10" u="+" l="담당·상담 업체" />
                 <MiniStat n="6+" u="개월" l="이상 지속 사례" />
               </div>
             </Reveal>
@@ -310,18 +307,6 @@ function HeroQuickCard() {
           <div style={{ fontSize: 13, color: 'var(--ink-2)' }}>전 채널 통합 운영</div>
           <div className="display" style={{ fontSize: 18, color: 'var(--ink)' }}>One Team</div>
         </div>
-      </div>
-
-      <div style={{
-        position: 'absolute', bottom: -22, left: -22,
-        background: 'var(--ink)', color: 'var(--paper)',
-        padding: '12px 18px', borderRadius: 999,
-        fontSize: 13, fontWeight: 500,
-        display: 'flex', alignItems: 'center', gap: 10,
-        boxShadow: '0 12px 24px -8px rgba(62,42,30,0.4)',
-      }}>
-        <span style={{ width: 8, height: 8, borderRadius: 999, background: 'var(--gold)', boxShadow: '0 0 0 4px rgba(207,176,126,0.3)' }}/>
-        대표가 직접 상담합니다
       </div>
     </div>
   );

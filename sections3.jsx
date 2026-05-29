@@ -80,6 +80,10 @@ function Apply() {
     consent: false,
   });
   const [done, setDone] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState('');
+
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqnbeaq';
 
   const totalSteps = 3;
   const next = () => setStep(s => Math.min(totalSteps, s + 1));
@@ -91,9 +95,36 @@ function Apply() {
   const canStep2 = data.name.trim().length >= 2 && /^[0-9\-\s]{9,}$/.test(data.phone) && !!data.region;
   const canSubmit = data.consent;
 
-  const submit = () => {
-    if (!canSubmit) return;
-    setDone(true);
+  const submit = async () => {
+    if (!canSubmit || sending) return;
+    setError('');
+    setSending(true);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          '현재 상황': data.status,
+          '관심 채널': data.channels.join(', '),
+          '대표자 성함': data.name,
+          '연락처': data.phone,
+          '상호명': data.company || '-',
+          '지역': data.region,
+          '문의사항': data.message || '-',
+          _subject: `[브랜딩포유] 상담 신청 — ${data.name || '익명'}`,
+        }),
+      });
+      if (res.ok) {
+        setDone(true);
+      } else {
+        const body = await res.json().catch(() => ({}));
+        setError((body.errors && body.errors.map(e => e.message).join(' ')) || '전송에 실패했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요.');
+      }
+    } catch (e) {
+      setError('네트워크 오류로 전송하지 못했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -279,6 +310,9 @@ function Apply() {
                         style={{ marginTop: 3, width: 18, height: 18, accentColor: 'var(--gold-deep)' }} />
                       <span><strong>(필수)</strong> 개인정보 수집·이용에 동의합니다. 수집된 정보는 상담 목적으로만 사용되며, 처리 완료 후 즉시 파기됩니다.</span>
                     </label>
+                    {error && (
+                      <div style={{ marginTop: 4, fontSize: 13, color: '#C0392B', lineHeight: 1.5 }}>{error}</div>
+                    )}
                   </div>
                 )}
 
@@ -289,7 +323,7 @@ function Apply() {
                       style={{ opacity: (step === 1 ? canStep1 : canStep2) ? 1 : .4, pointerEvents: (step === 1 ? canStep1 : canStep2) ? 'auto' : 'none' }}>다음 단계</Button>
                   ) : (
                     <Button variant="gold" size="md" onClick={submit} icon={<ArrowIcon size={14}/>}
-                      style={{ opacity: canSubmit ? 1 : .4, pointerEvents: canSubmit ? 'auto' : 'none' }}>상담 신청 완료</Button>
+                      style={{ opacity: (canSubmit && !sending) ? 1 : .4, pointerEvents: (canSubmit && !sending) ? 'auto' : 'none' }}>{sending ? '전송 중…' : '상담 신청 완료'}</Button>
                   )}
                 </div>
               </>

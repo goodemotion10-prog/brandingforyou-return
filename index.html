@@ -68,9 +68,34 @@
     outline: 2px solid var(--gold);
     outline-offset: 2px;
   }
+
+  /* marker / highlighter sweep — sits behind text, slightly angled like a real pen stroke */
+  .bfy-hl {
+    background-image: linear-gradient(104deg,
+      rgba(184,153,104,0) 0.4%,
+      rgba(184,153,104,.50) 1.8%,
+      rgba(184,153,104,.50) 96%,
+      rgba(184,153,104,0) 99.6%);
+    background-repeat: no-repeat;
+    background-size: 100% 62%;
+    background-position: 0 78%;
+    padding: 0 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
 </style>
 </head>
 <body>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#1F2A26"/>
+    <g transform="translate(50 50)">
+      <path d="M -18 8 A 18 18 0 0 0 18 8" stroke="#B8985F" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <text x="0" y="-6" font-family="serif" font-size="34" font-weight="700" fill="#F0EEE5" text-anchor="middle">B</text>
+    </g>
+  </svg>
+</template>
 
 <div id="root"></div>
 
