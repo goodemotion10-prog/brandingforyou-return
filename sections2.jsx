@@ -88,7 +88,7 @@ function WhyUs() {
 /* ============ SERVICES — All-in-one ============ */
 function Services() {
   const services = [
-    { code: 'BLOG', name: '블로그', desc: '검색 노출 + 상위 콘텐츠 운영', deliver: '월 10-20건' },
+    { code: 'BLOG', name: '블로그', desc: '블로그 콘텐츠 기획·발행·관리', deliver: '월 10-20건' },
     { code: 'IG',   name: '인스타그램', desc: '브랜드 톤 피드 + 릴스 운영', deliver: '월 8건 (기본)' },
     { code: 'YT',   name: '유튜브', desc: '쇼츠·롱폼 기획부터 편집까지', deliver: '월 4-8건' },
     { code: 'VRL',  name: '바이럴 마케팅', desc: '카페·커뮤니티 조직적 바이럴', deliver: '상담 필요' },
